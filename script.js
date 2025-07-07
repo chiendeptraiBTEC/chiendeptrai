@@ -1,19 +1,3 @@
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
-menuToggle && menuToggle.addEventListener('click', function() {
-  mainNav.classList.toggle('open');
-});
-
-// Đóng menu khi click ngoài (mobile)
-document.addEventListener('click', function(e) {
-  if (mainNav && mainNav.classList.contains('open')) {
-    if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
-      mainNav.classList.remove('open');
-    }
-  }
-});
-
 // Search popup
 const searchBtn = document.getElementById('searchBtn');
 const searchInputWrapper = document.getElementById('searchInputWrapper');
@@ -417,7 +401,6 @@ if (chatboxToggleBtn && chatbox) {
       chatbox.focus();
     }
   });
-  
   // Đóng chatbox khi click ngoài vùng chatbox
   document.addEventListener('mousedown', function(e) {
     if (chatbox.classList.contains('open') && !chatbox.contains(e.target) && !chatboxToggleBtn.contains(e.target)) {
@@ -425,71 +408,69 @@ if (chatboxToggleBtn && chatbox) {
     }
   });
 }
-
-// ================= SECTION: CHAT BOX (HỎI ĐÁP/LIÊN HỆ) =================
-//
-// 1. Xử lý mở/đóng chat box (toggle)
-// 2. Xử lý gửi tin nhắn, render lịch sử chat
-// 3. Hiệu ứng động cho nút, hộp chat
-// 4. Có thể mở rộng: gửi API, lưu localStorage, v.v.
-//
-// Các selector liên quan:
-//   - #chatbox-container, #chatbox-toggle, #chatbox, #chatbox-close
-//   - .chatbox-messages, .chatbox-input-area, #chatbox-input, #chatbox-send
-//   - Ảnh trang trí: .chatbox-corner-img
-//
-// ================= BẮT ĐẦU CODE CHAT BOX =================
-
-// Lấy các phần tử DOM
-const chatboxToggle = document.getElementById('chatbox-toggle');
-const chatboxBox = document.getElementById('chatbox');
-const chatboxClose = document.getElementById('chatbox-close');
-const chatboxMessages = document.querySelector('.chatbox-messages');
-const chatboxInput = document.getElementById('chatbox-input');
-const chatboxSend = document.getElementById('chatbox-send');
-const chatboxForm = document.querySelector('.chatbox-input-area');
-
-// 1. Xử lý mở/đóng chat box
-if (chatboxToggle && chatboxBox && chatboxClose) {
-  chatboxToggle.addEventListener('click', () => {
-    chatboxBox.classList.toggle('chatbox-hidden');
-    if (!chatboxBox.classList.contains('chatbox-hidden')) {
-      chatboxInput.focus();
-    }
-  });
-  chatboxClose.addEventListener('click', () => {
-    chatboxBox.classList.add('chatbox-hidden');
-  });
-}
-
-// 2. Xử lý gửi tin nhắn (giả lập, không gửi server)
-if (chatboxForm && chatboxMessages && chatboxInput) {
-  chatboxForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const msg = chatboxInput.value.trim();
-    if (msg.length > 0) {
-      // Thêm tin nhắn người dùng
-      addChatMessage('user', msg);
-      chatboxInput.value = '';
-      // Giả lập trả lời tự động
-      setTimeout(() => {
-        addChatMessage('bot', 'Cảm ơn bạn đã liên hệ BTEC FPT! Chúng tôi sẽ phản hồi sớm nhất.');
-      }, 800);
+// --- XỬ LÝ INPUT CHATBOX ---
+const chatboxInput = document.querySelector('.chatbox-input');
+if (chatboxInput) {
+  chatboxInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const message = this.value.trim();
+      if (message) {
+        addUserMessage(message);
+        this.value = '';
+        setTimeout(() => { addBotResponse(message); }, 500);
+      }
     }
   });
 }
-
-// 3. Hàm render tin nhắn vào chat box
-function addChatMessage(sender, text) {
+// Xử lý click vào các option
+if (chatboxOptions) {
+  chatboxOptions.addEventListener('click', function(e) {
+    if (e.target.classList.contains('chatbox-option') || e.target.closest('.chatbox-option')) {
+      const option = e.target.closest('.chatbox-option');
+      const optionText = option.querySelector('span').textContent;
+      addUserMessage(optionText);
+      setTimeout(() => { addBotResponse(optionText); }, 500);
+    }
+  });
+}
+// Hàm thêm tin nhắn người dùng vào chatbox
+function addUserMessage(message) {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
   const msgDiv = document.createElement('div');
-  msgDiv.className = 'chatbox-msg ' + (sender === 'user' ? 'chatbox-msg-user' : 'chatbox-msg-bot');
-  msgDiv.innerText = text;
-  chatboxMessages.appendChild(msgDiv);
-  chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+  msgDiv.className = 'chat-message user-message';
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  contentDiv.textContent = message;
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
 }
-
-// 4. (Có thể mở rộng) Lưu lịch sử chat vào localStorage, gửi API, hiệu ứng động...
-// ================= END CODE CHAT BOX =================
+// Hàm thêm phản hồi bot vào chatbox
+function addBotResponse(userMessage) {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message bot-message';
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  // Phản hồi mẫu, có thể thay đổi logic trả lời tại đây
+  contentDiv.textContent = 'Cảm ơn bạn đã chọn: ' + userMessage + '. Chức năng chat sẽ được cập nhật thêm!';
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
 
 // Hiệu ứng glassmorphism/shadow cho navbar khi cuộn
 window.addEventListener('scroll', function() {
@@ -678,4 +659,52 @@ newsTabs.forEach(tab => {
       }
     });
   });
-}); 
+});
+
+// === BỔ SUNG: XỬ LÝ GỬI VÀ HIỂN THỊ ẢNH TRONG CHATBOX ===
+// 1. Lắng nghe sự kiện chọn file ảnh từ input .chatbox-upload
+const chatboxUpload = document.querySelector('.chatbox-upload');
+if (chatboxUpload) {
+  chatboxUpload.addEventListener('change', function(e) {
+    const files = Array.from(e.target.files);
+    files.forEach(file => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          addUserImage(evt.target.result, file.name);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    // Reset input để có thể chọn lại cùng 1 ảnh nếu muốn
+    chatboxUpload.value = '';
+  });
+}
+
+// 2. Hàm thêm ảnh người dùng gửi vào chatbox
+function addUserImage(imgSrc, fileName) {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message user-message';
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  // Thêm thẻ img hiển thị ảnh
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img.alt = fileName || 'Ảnh gửi';
+  img.className = 'chatbox-image'; // Thêm class để dễ style
+  img.style.maxWidth = '180px';
+  img.style.maxHeight = '180px';
+  img.style.borderRadius = '8px';
+  img.style.margin = '4px 0';
+  contentDiv.appendChild(img);
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+} 

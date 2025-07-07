@@ -59,8 +59,8 @@
     <img src="image/temple-pillar-right.png" alt="Cột phải" class="pillar pillar-right">
     <img src="image/red-lantern.png" alt="Đèn lồng trái" class="lantern lantern-left">
     <img src="image/red-lantern.png" alt="Đèn lồng phải" class="lantern lantern-right">
-    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-left" style="--ribbon-rotate: 30deg; --ribbon-flip: 1;">
-    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-right" style="--ribbon-rotate: 12deg; --ribbon-flip: -1;">
+    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-left" style="--ribbon-rotate: 6deg; --ribbon-flip: 1;">
+    <img src="image/red-silk-ribbon.png" class="red-ribbon red-ribbon-right" style="--ribbon-rotate: 6deg; --ribbon-flip: -1;">
     
     <!-- Code elements floating in background -->
     <div class="code-elements">
@@ -133,12 +133,12 @@
     - Nội dung lấy từ https://btec.fpt.edu.vn/ (giới thiệu, giá trị, triết lý, timeline)
   -->
   <section class="intro-btec-section" id="about">
+    <div class="clouds-row">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+    </div>
     <div class="intro-btec-container">
-      <!-- Viền mây trải dài ngang section (3 cloud) -->
-      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-1">
-      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-2">
-      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
-      <!-- Cột trái: Minh họa trường thi xưa lồng ghép công nghệ -->
       <div class="intro-btec-left">
         <!-- Minh họa chính -->
         <div class="exam-illustration-frame">
@@ -172,10 +172,11 @@
   <!-- ================= END SECTION: GIỚI THIỆU BTEC FPT SCHOOLS ================= -->
   <!-- Section: Chương trình đào tạo -->
   <section class="program-section" id="program">
-    <!-- Viền mây trải dài ngang section (3 cloud) -->
-    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-1">
-    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-2">
-    <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
+    <div class="clouds-row">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+      <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro">
+    </div>
     <h2 class="section-title">Chương trình đào tạo</h2>
     <div class="program-grid">
       <!-- Card 1: Lập trình máy tính -->
@@ -239,9 +240,6 @@
     </div>
     <div class="timeline-decor decor-lantern">
       <img src="image-chat-box/chatbox-corner-drum.png" alt="Lồng đèn đỏ" />
-    </div>
-    <div class="timeline-decor decor-silk">
-      <img src="image/red-silk-ribbon.png" alt="Dải lụa vàng" />
     </div>
 
     <h2 class="section-title">
@@ -568,7 +566,7 @@
       <div class="custom-chatbox" style="background: url('image-chat-box/chatbox-bg.png') center/cover no-repeat;">
         <!-- Dải lụa đỏ trang trí -->
         <img src="image-chat-box/chatbox-ribbon.png" alt="Dải lụa đỏ trang trí" class="chatbox-ribbon">
-        <!-- Box tiêu đề lớn (nếu muốn dùng ảnh nền cho box, có thể dùng img hoặc CSS background) -->
+        <!-- Box tiêu đề lớn -->
         <div class="chatbox-title-box">Bạn cần giúp đỡ gì</div>
         <!-- Các lựa chọn chính -->
         <div class="chatbox-options">
@@ -587,9 +585,8 @@
         </div>
         <!-- Icon trống nhỏ góc phải dưới -->
         <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
-        <!-- Input chat ở dưới cùng của chatbox: cho phép người dùng nhập tin nhắn -->
+        <!-- Input chat ở dưới cùng -->
         <form class="chatbox-input-wrapper" autocomplete="off">
-          <!-- Ô nhập tin nhắn, JS sẽ lắng nghe sự kiện Enter để gửi -->
           <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
           <label class="chatbox-upload-label">
             <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
