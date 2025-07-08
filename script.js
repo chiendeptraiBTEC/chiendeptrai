@@ -195,6 +195,33 @@ document.querySelectorAll('.footer-icon').forEach(icon => {
 document.addEventListener('DOMContentLoaded', function() {
   // Khởi tạo các chức năng khi DOM sẵn sàng
   initAlumniCarousel();
+
+  // === CHATBOX CŨ: Toggle ẩn/hiện ===
+  const chatboxToggle = document.getElementById('chatbox-toggle');
+  const chatbox = document.getElementById('chatbox');
+  const chatboxClose = document.getElementById('chatbox-close');
+
+  if (chatboxToggle && chatbox) {
+    chatboxToggle.addEventListener('click', function(e) {
+      chatbox.classList.toggle('chatbox-hidden');
+      if (!chatbox.classList.contains('chatbox-hidden')) {
+        chatbox.focus();
+      }
+    });
+  }
+  if (chatboxClose && chatbox) {
+    chatboxClose.addEventListener('click', function() {
+      chatbox.classList.add('chatbox-hidden');
+    });
+  }
+  // Đóng chatbox khi click ngoài vùng chatbox
+  document.addEventListener('mousedown', function(e) {
+    if (chatbox && !chatbox.classList.contains('chatbox-hidden')) {
+      if (!chatbox.contains(e.target) && e.target !== chatboxToggle) {
+        chatbox.classList.add('chatbox-hidden');
+      }
+    }
+  });
 });
 
 // Dropdown menu hiện đại: click mới mở, click ra ngoài thì đóng
@@ -389,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Chatbox toggle logic
+// === CHATBOX MỚI ĐỒNG BỘ ===
 const chatboxToggleBtn = document.querySelector('.chatbox-toggle-btn');
 const chatbox = document.querySelector('.chatbox');
 const chatboxOptions = document.querySelector('.chatbox-options');
@@ -471,6 +498,49 @@ function addBotResponse(userMessage) {
   chatBody.appendChild(msgDiv);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+// === BỔ SUNG: XỬ LÝ GỬI VÀ HIỂN THỊ ẢNH TRONG CHATBOX ===
+const chatboxUpload = document.querySelector('.chatbox-upload');
+if (chatboxUpload) {
+  chatboxUpload.addEventListener('change', function(e) {
+    const files = Array.from(e.target.files);
+    files.forEach(file => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          addUserImage(evt.target.result, file.name);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    chatboxUpload.value = '';
+  });
+}
+function addUserImage(imgSrc, fileName) {
+  let chatBody = document.querySelector('.chatbox-body');
+  if (!chatBody) {
+    chatBody = document.createElement('div');
+    chatBody.className = 'chatbox-body';
+    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
+    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
+  }
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message user-message';
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img.alt = fileName || 'Ảnh gửi';
+  img.className = 'chatbox-image';
+  img.style.maxWidth = '180px';
+  img.style.maxHeight = '180px';
+  img.style.borderRadius = '8px';
+  img.style.margin = '4px 0';
+  contentDiv.appendChild(img);
+  msgDiv.appendChild(contentDiv);
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+// === END CHATBOX MỚI ===
 
 // Hiệu ứng glassmorphism/shadow cho navbar khi cuộn
 window.addEventListener('scroll', function() {
@@ -659,52 +729,4 @@ newsTabs.forEach(tab => {
       }
     });
   });
-});
-
-// === BỔ SUNG: XỬ LÝ GỬI VÀ HIỂN THỊ ẢNH TRONG CHATBOX ===
-// 1. Lắng nghe sự kiện chọn file ảnh từ input .chatbox-upload
-const chatboxUpload = document.querySelector('.chatbox-upload');
-if (chatboxUpload) {
-  chatboxUpload.addEventListener('change', function(e) {
-    const files = Array.from(e.target.files);
-    files.forEach(file => {
-      if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          addUserImage(evt.target.result, file.name);
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-    // Reset input để có thể chọn lại cùng 1 ảnh nếu muốn
-    chatboxUpload.value = '';
-  });
-}
-
-// 2. Hàm thêm ảnh người dùng gửi vào chatbox
-function addUserImage(imgSrc, fileName) {
-  let chatBody = document.querySelector('.chatbox-body');
-  if (!chatBody) {
-    chatBody = document.createElement('div');
-    chatBody.className = 'chatbox-body';
-    const inputWrapper = document.querySelector('.chatbox-input-wrapper');
-    if (inputWrapper) inputWrapper.parentNode.insertBefore(chatBody, inputWrapper);
-  }
-  const msgDiv = document.createElement('div');
-  msgDiv.className = 'chat-message user-message';
-  const contentDiv = document.createElement('div');
-  contentDiv.className = 'message-content';
-  // Thêm thẻ img hiển thị ảnh
-  const img = document.createElement('img');
-  img.src = imgSrc;
-  img.alt = fileName || 'Ảnh gửi';
-  img.className = 'chatbox-image'; // Thêm class để dễ style
-  img.style.maxWidth = '180px';
-  img.style.maxHeight = '180px';
-  img.style.borderRadius = '8px';
-  img.style.margin = '4px 0';
-  contentDiv.appendChild(img);
-  msgDiv.appendChild(contentDiv);
-  chatBody.appendChild(msgDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
-} 
+}); 

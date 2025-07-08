@@ -1,0 +1,233 @@
+#footer {
+  background: linear-gradient(90deg, #1976D2 60%, #FFF9C4 100%);
+  color: #fff;
+  padding: 38px 0 18px 0;
+  border-top: 2px solid var(--color-border);
+  box-shadow: 0 -2px 12px var(--color-shadow);
+  position: relative;
+  z-index: 2;
+}
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.footer-col {
+  flex: 1 1 0;
+  min-width: 220px;
+  margin-bottom: 18px;
+}
+.footer-col h3 {
+  font-size: 1.18rem;
+  color: #FFD54F;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.footer-link, .footer-link:visited {
+  color: #FFD54F;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.18s;
+}
+.footer-link:hover {
+  color: #FF9800;
+}
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.footer-icon {
+  color: #FFD54F;
+  background: #fffbe9;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 8px #FFD54F33;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.footer-icon:hover {
+  background: #FFD54F;
+  color: #1976D2;
+  box-shadow: 0 4px 16px #FFD54F88;
+}
+.footer-newsletter {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.footer-newsletter input {
+  flex: 1 1 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+.footer-newsletter button {
+  background: #FFD54F;
+  color: #1976D2;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.footer-newsletter button:hover {
+  background: #FF9800;
+  color: #fff;
+}
+.footer-map {
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #FFD54F33;
+  width: 220px;
+  height: 120px;
+}
+.footer-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.scroll-to-top {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  background: #FFD54F;
+  color: #1976D2;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px #FFD54F33;
+  cursor: pointer;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.scroll-to-top.show {
+  display: flex;
+}
+.footer-lotus {
+  position: absolute;
+  right: 2vw;
+  bottom: 8px;
+  opacity: 0.10;
+  z-index: 1;
+  pointer-events: none;
+}
+.footer-copyright {
+  text-align: center;
+  color: #FFD54F;
+  font-size: 1rem;
+  margin-top: 18px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+}
+.footer-section {
+  background: #23234b; /* hoặc màu nền phù hợp với ảnh */
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.footer-info-img {
+  width: 100%;
+  max-width: 1200px;   /* hoặc đúng chiều rộng thiết kế của ảnh */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+@media (max-width: 1200px) {
+  .footer-info-img {
+    max-width: 100vw;
+  }
+}
+.footer-col {
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 320px;
+  margin: 0 12px;
+}
+.footer-col h4 {
+  color: #a13a1a;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.footer-col a {
+  color: #e52d27;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.footer-col a:hover {
+  color: #ff6a00;
+}
+.footer-col input[type="email"] {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e52d27;
+  margin-bottom: 8px;
+  font-family: 'Roboto Slab', serif;
+}
+.footer-col .card-btn {
+  width: 100%;
+}
+.footer-map {
+  margin-top: 12px;
+}
+.footer-lotus-bg {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 320px;
+  opacity: 0.08;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0 !important;
+}
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: linear-gradient(90deg, #e52d27 0%, #ff6a00 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(229,45,39,0.15);
+  z-index: 1000;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.scroll-top:hover {
+  background: linear-gradient(90deg, #ff6a00 0%, #e52d27 100%);
+  box-shadow: 0 8px 24px rgba(229,45,39,0.25);
+} 

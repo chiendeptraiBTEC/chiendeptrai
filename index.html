@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang Chủ Truyền Thống Hiện Đại</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="alumni.css">
+  <link rel="stylesheet" href="news.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="chatbox.css">
+  <link rel="stylesheet" href="utilities.css">
+  <link rel="stylesheet" href="responsive.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -117,11 +127,7 @@
     
     <img src="image/lotus-flower-2.png" alt="Hoa sen 3" class="lotus-decor lotus-decor-3">
     
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-arrow"></div>
-      <span class="scroll-text">Khám phá thêm</span>
-    </div>
+    <!-- Đã xóa scroll-indicator và scroll-text (chữ Khám phá thêm) -->
   </section>
   <!-- ================= SECTION: GIỚI THIỆU BTEC FPT SCHOOLS ================= -->
   <!--
@@ -343,69 +349,77 @@
     <img src="Image-gioi-thieu/border-cloud-intro.png" alt="Viền mây" class="border-cloud-intro border-cloud-3">
     <div class="honor-board-bg">
       <img src="image/temple-roof-hero.png" class="dragon-border" alt="Dragon Border" />
-      <img src="image/brand-01.png" class="cloud-pattern" alt="Cloud Pattern" />
       <img src="image/lotus-flower.png" class="lotus-decor" alt="Lotus" />
       <img src="image/icon-chat-box.png" class="brush-icon" alt="Brush Icon" />
       <img src="image/Logo-Btec.png" class="btec-logo" alt="BTEC FPT Logo" />
       <div class="alumni-carousel">
         <div class="alumni-cards-row">
       <div class="alumni-card">
-            <div class="alumni-photo-frame">
-              <img src="image/anh-truong.jpg" class="alumni-photo" alt="Alumni Photo" />
-              <div class="photo-glow"></div>
-            </div>
-            <div class="alumni-info">
-              <h3>Nguyen Van Minh</h3>
-              <p class="alumni-year">Class of 2020</p>
-              <div class="alumni-achievement">
-                <strong>Outstanding Achievement</strong>
-                <p>Lead Software Engineer at Google Vietnam, developed AI solutions impacting 50M+ users globally</p>
-              </div>
-            </div>
-      </div>
-      <div class="alumni-card">
-            <div class="alumni-photo-frame">
-              <img src="image/brand-01.png" class="alumni-photo" alt="Alumni Photo" />
-              <div class="photo-glow"></div>
-            </div>
-            <div class="alumni-info">
-              <h3>Tran Thi B</h3>
-              <p class="alumni-year">Class of 2021</p>
-              <div class="alumni-achievement">
-                <strong>Top Designer</strong>
-                <p>Lead Designer at VNG, won national creative awards in 2022</p>
-              </div>
-            </div>
-      </div>
-      <div class="alumni-card">
-            <div class="alumni-photo-frame">
-              <img src="image/brand-02.png" class="alumni-photo" alt="Alumni Photo" />
-              <div class="photo-glow"></div>
-            </div>
-            <div class="alumni-info">
-              <h3>Le Van C</h3>
-              <p class="alumni-year">Class of 2019</p>
-              <div class="alumni-achievement">
-                <strong>Marketing Star</strong>
-                <p>Marketing Manager at Shopee, led campaigns reaching millions</p>
-              </div>
-            </div>
-          </div>
-          <!-- Thêm nhiều alumni-card nếu muốn, mỗi lần chỉ 3 card sẽ hiển thị -->
-          <div class="alumni-card">
-            <div class="alumni-photo-frame">
-              <img src="image/brand-03.png" class="alumni-photo" alt="Alumni Photo" />
-              <div class="photo-glow"></div>
-            </div>
-            <div class="alumni-info">
-              <h3>Pham D</h3>
-              <p class="alumni-year">Class of 2018</p>
-              <div class="alumni-achievement">
-                <strong>Entrepreneur</strong>
-                <p>Founder of EdTech startup, Forbes 30 Under 30 Vietnam</p>
-              </div>
-            </div>
-          </div>
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-hn-hong-hanh.jpg" class="alumni-photo-rect-img" alt="Nguyễn Thị Hồng Hạnh" />
+  </div>
+  <div class="alumni-info">
+    <h3>Nguyễn Thị Hồng Hạnh</h3>
+    <div class="alumni-achievement">
+      <strong>Giảng viên IT, FPT BTEC Hà Nội</strong>
+      <p>Truyền cảm hứng học tập suốt đời, dám mơ lớn, hành trình từ Nga đến Paris và FPT BTEC...</p>
+      <a href="https://btec.fpt.edu.vn/tu-nga-den-paris-hanh-trinh-khong-ngung-vuon-cao-cua-giang-vien-fpt-btec-co-nguyen-thi-hong-hanh/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-trinh-van-linh.jpg" class="alumni-photo-rect-img" alt="Trịnh Văn Linh" />
+  </div>
+  <div class="alumni-info">
+    <h3>Trịnh Văn Linh</h3>
+    <div class="alumni-achievement">
+      <strong>Founder Creahub</strong>
+      <p>Từ sinh viên Thiết kế Đồ họa FPT BTEC đến founder startup sáng tạo dành cho cộng đồng thiết kế trẻ...</p>
+      <a href="https://btec.fpt.edu.vn/trinh-van-linh-tu-sinh-vien-thiet-ke-do-hoa-fpt-btec-den-founder-creahub/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-ly-thai-cuong.jpg" class="alumni-photo-rect-img" alt="Lý Thái Cường" />
+  </div>
+  <div class="alumni-info">
+    <h3>Lý Thái Cường</h3>
+    <div class="alumni-achievement">
+      <strong>Sinh viên năm 2, BTEC FPT Cần Thơ</strong>
+      <p>Chưa tốt nghiệp đã có việc làm tại doanh nghiệp công nghệ lớn, thành tích học tập xuất sắc...</p>
+      <a href="https://btec.fpt.edu.vn/co-viec-lam-xin-khi-chua-tot-nghiep-bi-quyet-cua-chang-sinh-vien-nam-2-btec-fpt/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-nguyen-thi-ngan.jpg" class="alumni-photo-rect-img" alt="Nguyễn Thị Ngân" />
+  </div>
+  <div class="alumni-info">
+    <h3>Nguyễn Thị Ngân</h3>
+    <div class="alumni-achievement">
+      <strong>Cựu sinh viên QTKD, hiện học thạc sĩ tại Úc</strong>
+      <p>Truyền cảm hứng về tinh thần cầu tiến, hội nhập quốc tế, hành trình đến nước Úc...</p>
+      <a href="https://btec.fpt.edu.vn/hanh-trinh-toi-uc-hoc-thac-si-cua-cuu-sinh-vien-btec-fpt/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+<div class="alumni-card">
+  <div class="alumni-photo-rect">
+    <img src="Image-guong-mat/guong-mat-hn-quach-cong-tuan.jpg" class="alumni-photo-rect-img" alt="Quách Công Tuấn" />
+  </div>
+  <div class="alumni-info">
+    <h3>Quách Công Tuấn</h3>
+    <div class="alumni-achievement">
+      <strong>Quality Engineer tại FPT Software</strong>
+      <p>Bản lĩnh, quyết tâm, từ sinh viên BTEC FPT Hà Nội đến Quality Engineer tại FPT Software...</p>
+      <a href="https://btec.fpt.edu.vn/gap-lai-quach-cong-tuan-cuu-sinh-vien-fpt-btec-va-hanh-trinh-chinh-phuc-vi-tri-quality-engineer-tai-fpt-software/" target="_blank">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+
         </div>
         <div class="carousel-controls">
           <span class="carousel-dot active"></span>
@@ -425,7 +439,6 @@
       <img src="image/hero-bg.png" alt="Bảng gỗ" class="news-board-wood">
       <img src="image/temple-roof-hero.png" alt="Viền vàng" class="news-board-roof">
       <img src="image/lotus-flower-1.png" alt="Hoa sen" class="news-board-lotus">
-      <img src="image/red-silk-ribbon.png" alt="Dải lụa nhỏ" class="news-board-ribbon">
       <div class="news-board-main">
         <div class="news-board-header">
           <span class="news-board-icon"><img src="image/icon-chat-box.png" alt="icon chuông"/></span>
@@ -433,9 +446,9 @@
         </div>
         <div class="news-board-announcement">
           <div class="announcement-content">
-            <strong>Thông báo quan trọng về kỳ thi cuối kỳ 2025</strong>
-            <p>Lịch thi cuối kỳ học kỳ I năm học 2024-2025 đã được công bố. Học sinh vui lòng kiểm tra lịch thi chi tiết và chuẩn bị tốt cho kỳ thi.</p>
-            <button class="news-detail-btn">Xem chi tiết</button>
+            <strong>Thông báo quan trọng về tuyển sinh năm học 2025</strong>
+            <p>BTEC FPT chính thức mở đăng ký tuyển sinh cho năm học 2025 với nhiều chương trình học bổng hấp dẫn. Học sinh, sinh viên vui lòng truy cập website để xem chi tiết điều kiện, hồ sơ và thời gian đăng ký.</p>
+            <a href="https://btec.fpt.edu.vn/tuyen-sinh/" class="news-detail-btn" target="_blank">Xem chi tiết</a>
           </div>
         </div>
       </div>
@@ -443,85 +456,94 @@
     <div class="news-tabs">
       <button class="news-tab active" data-type="all"><span>📰</span> Tất cả tin tức</button>
       <button class="news-tab" data-type="event"><span>📅</span> Sự kiện</button>
-      <button class="news-tab" data-type="achievement"><span>🏆</span> Thành tích</button>
-      <button class="news-tab" data-type="notice"><span>🔔</span> Thông báo</button>
+      <button class="news-tab" data-type="company"><span>🏢</span> Doanh nghiệp</button>
+      <button class="news-tab" data-type="hanoi"><span>🏫</span> Hà Nội</button>
     </div>
     <div class="news-cards-grid">
-      <!-- Card 1: Thành tích -->
-      <div class="news-card" data-type="achievement">
-        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon thành tích"></div>
+      <!-- Tin tức chung (all/event) -->
+      <div class="news-card" data-type="event">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon sự kiện"></div>
         <div class="news-card-content">
-          <span class="news-card-type">Thành tích</span>
-          <h3>Học sinh BTEC FPT đạt giải Nhất cuộc thi Lập trình Quốc gia</h3>
-          <p>Đội tuyển học sinh của trường đã xuất sắc giành giải Nhất trong cuộc thi Lập trình Quốc gia dành cho học sinh THPT...</p>
+          <span class="news-card-type">Sự kiện</span>
+          <h3>Sinh viên BTEC FPT Đà Nẵng tham quan Woori Bank</h3>
+          <p>Sinh viên BTEC FPT Đà Nẵng đã có cơ hội tham quan và giao lưu tại Ngân hàng Woori Việt Nam, chi nhánh Đà Nẵng – một trong những ngân hàng lớn nhất Hàn Quốc.</p>
           <div class="news-card-footer">
-            <span class="news-card-date">15/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <span class="news-card-date">29/03/2025</span>
+            <a href="https://btec.fpt.edu.vn/sinh-vien-btec-fpt-da-nang-hao-hung-trong-chuyen-tham-quan-doanh-nghiep-den-woori-bank/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
-      <!-- Card 2: Sự kiện -->
       <div class="news-card" data-type="event">
-        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon sự kiện"></div>
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon sự kiện"></div>
         <div class="news-card-content">
           <span class="news-card-type">Sự kiện</span>
-          <h3>Ngày hội Tuyển sinh 2025 – Khám phá tương lai</h3>
-          <p>Sự kiện tuyển sinh lớn nhất trong năm với nhiều hoạt động hấp dẫn, tư vấn chương trình học và cơ hội nhận học bổng...</p>
+          <h3>BTEC FPT TP.HCM tham dự Hội nghị tổng kết HSIA 2024</h3>
+          <p>BTEC FPT TP.HCM tham gia Hội nghị tổng kết hoạt động Hội Công nghệ Vi mạch Bán dẫn TP.HCM (HSIA) năm 2024 và lễ kết nạp hội viên.</p>
           <div class="news-card-footer">
             <span class="news-card-date">20/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <a href="https://btec.fpt.edu.vn/btec-fpt-tphcm-tham-du-hoi-nghi-tong-ket-hsia-2024-va-le-ket-nap-hoi-vien/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
-      <!-- Card 3: Thông báo -->
-      <div class="news-card" data-type="notice">
-        <div class="news-card-icon"><img src="image/icon-drum-chatbox.png" alt="icon thông báo"></div>
+      <!-- Tin Doanh nghiệp -->
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
         <div class="news-card-content">
-          <span class="news-card-type">Thông báo</span>
-          <h3>Thông báo nghỉ Tết Nguyên Đán 2025</h3>
-          <p>Trường thông báo lịch nghỉ Tết Nguyên Đán Ất Tỵ 2025 và thời gian trở lại lớp học tập sau kỳ nghỉ...</p>
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Company Tour: FPT Telecom</h3>
+          <p>Sinh viên BTEC FPT tham quan FPT Telecom – doanh nghiệp hàng đầu ngành viễn thông, trải nghiệm thực tế môi trường làm việc hiện đại.</p>
           <div class="news-card-footer">
-            <span class="news-card-date">12/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <span class="news-card-date">16/09/2023</span>
+            <a href="https://btec.fpt.edu.vn/su-kien/company-tour-fpt-telecom-doanh-nghiep-hang-dau-trong-nganh-vien-thong-tai-viet-nam/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
-      <!-- Card 4: Tin tức -->
-      <div class="news-card" data-type="news">
-        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon tin tức"></div>
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
         <div class="news-card-content">
-          <span class="news-card-type">Tin tức</span>
-          <h3>Chương trình học bổng Merit 2025 chính thức mở đăng ký</h3>
-          <p>Học bổng Merit dành cho học sinh xuất sắc với giá trị lên đến 100% học phí. Hạn nộp hồ sơ đến hết tháng 2/2025...</p>
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Học qua thực tế cùng doanh nghiệp</h3>
+          <p>Tham quan, trải nghiệm thực tế tại các doanh nghiệp là hoạt động thường xuyên của BTEC FPT, giúp sinh viên cập nhật kiến thức thực tiễn.</p>
           <div class="news-card-footer">
-            <span class="news-card-date">10/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <span class="news-card-date">06/03/2023</span>
+            <a href="https://btec.fpt.edu.vn/hoc-qua-thuc-te-cung-doanh-nghiep-dac-san-btec-fpt/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
-      <!-- Card 5: Sự kiện -->
-      <div class="news-card" data-type="event">
-        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon sự kiện"></div>
+      <div class="news-card" data-type="company">
+        <div class="news-card-icon"><img src="image/icon-chat-box.png" alt="icon doanh nghiệp"></div>
         <div class="news-card-content">
-          <span class="news-card-type">Sự kiện</span>
-          <h3>Hội thảo "Xu hướng Công nghệ 2025" với chuyên gia quốc tế</h3>
-          <p>Sự kiện quy tụ các chuyên gia đầu ngành trong lĩnh vực công nghệ, chia sẻ về xu hướng phát triển trong năm 2025...</p>
+          <span class="news-card-type">Doanh nghiệp</span>
+          <h3>Lễ ký kết hợp tác phát triển nguồn nhân lực</h3>
+          <p>BTEC FPT HCM tổ chức thành công lễ ký kết hợp tác phát triển nguồn nhân lực với sự tham gia của đại diện 22 doanh nghiệp.</p>
           <div class="news-card-footer">
-            <span class="news-card-date">08/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <span class="news-card-date">26/10/2022</span>
+            <a href="https://btec.fpt.edu.vn/le-ky-ket-hop-tac-phat-trien-nguon-nhan-luc/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
-      <!-- Card 6: Thành tích -->
-      <div class="news-card" data-type="achievement">
-        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon thành tích"></div>
+      <!-- Tin Hà Nội -->
+      <div class="news-card" data-type="hanoi">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon Hà Nội"></div>
         <div class="news-card-content">
-          <span class="news-card-type">Thành tích</span>
-          <h3>BTEC FPT Schools đạt chứng nhận ISO 21001:2018</h3>
-          <p>Trường chính thức được cấp chứng nhận ISO 21001:2018 về hệ thống quản lý tổ chức giáo dục, khẳng định chất lượng đào tạo...</p>
+          <span class="news-card-type">Hà Nội</span>
+          <h3>Họp mặt Câu lạc bộ IT – BTEC FPT Hà Nội</h3>
+          <p>Sự kiện họp mặt Câu lạc bộ IT, giao lưu, chia sẻ kinh nghiệm học tập và định hướng nghề nghiệp cho sinh viên BTEC FPT Hà Nội.</p>
           <div class="news-card-footer">
-            <span class="news-card-date">05/01/2025</span>
-            <a href="#" class="news-card-more">Xem thêm →</a>
+            <span class="news-card-date">07/09/2023</span>
+            <a href="https://btec.fpt.edu.vn/su-kien/btec-fpt-hn-hop-mat-cau-lac-bo-it-btec-fpt/" class="news-card-more" target="_blank">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+      <div class="news-card" data-type="hanoi">
+        <div class="news-card-icon"><img src="image/icon-lotus.png" alt="icon Hà Nội"></div>
+        <div class="news-card-content">
+          <span class="news-card-type">Hà Nội</span>
+          <h3>Ngày hội tuyển sinh 2025 – Khám phá tương lai</h3>
+          <p>Sự kiện tuyển sinh lớn nhất năm với nhiều hoạt động hấp dẫn, tư vấn chương trình học và cơ hội nhận học bổng tại BTEC FPT Hà Nội.</p>
+          <div class="news-card-footer">
+            <span class="news-card-date">20/01/2025</span>
+            <a href="https://btec.fpt.edu.vn/ngay-hoi-tuyen-sinh-2025/" class="news-card-more" target="_blank">Xem thêm →</a>
           </div>
         </div>
       </div>
@@ -533,70 +555,43 @@
   <!-- End Section: Tin tức – Bảng thông báo hiện đại -->
   <!-- Footer -->
   <footer class="footer-section" id="footer">
-    <div class="footer-col contact">
-      <h4>Liên hệ</h4>
-      <p>Địa chỉ: ...</p>
-      <p>Điện thoại: ...</p>
-      <p>Email: ...</p>
-    </div>
-    <div class="footer-col social">
-      <h4>Mạng xã hội</h4>
-      <a href="#" class="footer-link">Facebook</a>
-      <a href="#" class="footer-link">YouTube</a>
-      <a href="#" class="footer-link">Zalo</a>
-    </div>
-    <div class="footer-col newsletter">
-      <h4>Nhận tin mới</h4>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Nhập email...">
-        <button class="card-btn">Đăng ký</button>
-        <div id="newsletterSuccess" style="display:none;color:green;margin-top:8px;">Đăng ký thành công!</div>
-      </form>
-      <div class="footer-map">
-        <img src="image/brand-06.png" alt="Bản đồ" style="width:100%;border-radius:8px;">
-      </div>
-    </div>
-    <img src="image/lotus-flower.png" alt="Hoa sen nền" class="footer-lotus-bg">
-    <!-- Nút chatbox -->
-    <button class="chatbox-toggle-btn" aria-label="Mở chat">
-      <img src="image/icon-chat-box.png" alt="Chatbox Icon" style="width:40px;height:40px;object-fit:contain;" />
-    </button>
-    <!-- Chatbox ẩn -->
-    <div class="chatbox" tabindex="-1">
-      <div class="custom-chatbox" style="background: url('image-chat-box/chatbox-bg.png') center/cover no-repeat;">
-        <!-- Dải lụa đỏ trang trí -->
-        <img src="image-chat-box/chatbox-ribbon.png" alt="Dải lụa đỏ trang trí" class="chatbox-ribbon">
-        <!-- Box tiêu đề lớn -->
-        <div class="chatbox-title-box">Bạn cần giúp đỡ gì</div>
-        <!-- Các lựa chọn chính -->
-        <div class="chatbox-options">
-          <button class="chatbox-option">
-            <img src="image-chat-box/icon-lotus-chatbox.png" alt="Icon hoa sen" class="chatbox-option-icon">
-            <span>Khóa học</span>
-          </button>
-          <button class="chatbox-option">
-            <img src="image-chat-box/icon-hat-chatbox.png" alt="Icon mũ Trạng Nguyên" class="chatbox-option-icon">
-            <span>Thông tin về trường</span>
-          </button>
-          <button class="chatbox-option">
-            <img src="image-chat-box/icon-drum-chatbox.png" alt="Icon trống đồng" class="chatbox-option-icon">
-            <span>Thêm</span>
-          </button>
-        </div>
-        <!-- Icon trống nhỏ góc phải dưới -->
-        <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
-        <!-- Input chat ở dưới cùng -->
-        <form class="chatbox-input-wrapper" autocomplete="off">
-          <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
-          <label class="chatbox-upload-label">
-            <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
-            <span class="chatbox-upload-btn" title="Gửi ảnh">📎</span>
-          </label>
-        </form>
-      </div>
-    </div>
-    <!-- Kết thúc chatbox -->
+    <img src="image/information-school.png" alt="Thông tin BTEC FPT" class="footer-info-img">
   </footer>
+
+  <!-- === CHATBOX CŨ: hỏi đáp/liên hệ === -->
+  <button class="chatbox-toggle-btn" aria-label="Mở chat">
+    <img src="image/icon-chat-box.png" alt="Chatbox Icon" style="width:40px;height:40px;object-fit:contain;" />
+  </button>
+  <div class="chatbox" tabindex="-1">
+    <div class="custom-chatbox" style="background: url('image-chat-box/chatbox-bg.png') center/cover no-repeat;">
+      <img src="image-chat-box/chatbox-ribbon.png" alt="Dải lụa đỏ trang trí" class="chatbox-ribbon">
+      <div class="chatbox-title-box">Bạn cần giúp đỡ gì</div>
+      <div class="chatbox-options">
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-lotus-chatbox.png" alt="Icon hoa sen" class="chatbox-option-icon">
+          <span>Khóa học</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-hat-chatbox.png" alt="Icon mũ Trạng Nguyên" class="chatbox-option-icon">
+          <span>Thông tin về trường</span>
+        </button>
+        <button class="chatbox-option">
+          <img src="image-chat-box/icon-drum-chatbox.png" alt="Icon trống đồng" class="chatbox-option-icon">
+          <span>Thêm</span>
+        </button>
+      </div>
+      <img src="image-chat-box/chatbox-corner-drum.png" alt="Icon trống nhỏ" class="chatbox-corner-icon">
+      <form class="chatbox-input-wrapper" autocomplete="off">
+        <input class="chatbox-input" type="text" placeholder="Nhập tin nhắn...">
+        <label class="chatbox-upload-label">
+          <input type="file" class="chatbox-upload" accept="image/*" multiple style="display:none;">
+          <span class="chatbox-upload-btn" title="Gửi ảnh">📎</span>
+        </label>
+      </form>
+    </div>
+  </div>
+  <!-- === END CHATBOX CŨ === -->
+
   <script src="script.js"></script>
 </body>
 </html> 
